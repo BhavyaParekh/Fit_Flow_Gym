@@ -1,0 +1,137 @@
+/* .firstpage{
+    background-image: url(./images/img1.png);
+    width: 1500px;
+    height: 1500px;
+    background-size: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+    
+ 
+}
+.btn:hover{
+    margin:15px 5px 20px 5px;
+    padding: 25px 0;
+    border-color: #fff;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    padding: 20px 0;
+    background-color: #0077EE;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+.btn1:hover{
+    margin:15px 5px 20px 5px;
+    padding: 1px 0;
+    border-color: #fff;
+}
+.btn1{
+    
+    width: 70px;
+    background-color: rgba(47, 25, 174, 0.971);
+    font-size: 1.2rem;
+    border-radius: 18px;
+    color: rgb(209, 209, 198);
+ 
+}
+.center{
+    text-align: center;
+    margin: 24px 0;
+
+}
+p{
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input{
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 15px 4px;
+    margin: 8px 0;
+    border-radius: 20px;
+ 
+
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  
+}
+ */
+
+
+ .form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #000;
+    color: #c87133;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .check-weight-heading {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+   
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn1{
+    width: 70px;
+    background-color: #be601d;
+  }
+  .btn{
+    background-color: #c95c29;
+  }
+  
+  button:hover {
+    background-color: #6b0303;
+  }
+  
+  p {
+    text-align: center;
+  }
