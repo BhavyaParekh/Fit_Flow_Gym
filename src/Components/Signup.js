@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import axios from 'axios';
 
 function Signup() {
-
+// user details given for sign up
   const [formData, setFormData] = useState({
     username: '',
     email: '',
