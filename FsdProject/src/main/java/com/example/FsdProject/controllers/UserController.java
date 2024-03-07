@@ -1,5 +1,6 @@
 package com.example.FsdProject.controllers;
 
+import com.example.FsdProject.entities.User;
 import com.example.FsdProject.payloads.UserDto;
 import com.example.FsdProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,16 @@ public class UserController {
 //        }
 //    }
     //post - create user
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody User user) {
+        User authenticatedUser = userService.loginUser(user.getUsername(), user.getPassword());
+        if (authenticatedUser != null) {
+            return ResponseEntity.ok(authenticatedUser);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+        }
+    }
     @PostMapping("/signup")
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
         UserDto createUserDto = this.userService.createUser(userDto);

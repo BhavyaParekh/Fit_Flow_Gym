@@ -13,4 +13,5 @@ public interface UserService {
     List<UserDto> getAllUsers();
     void deleteUser(Integer userId);
     //public boolean loginUser(UserDto userDto);
+    public User loginUser(String username, String password);
 }
