@@ -91,12 +91,5 @@ public class UserServiceImpl implements UserService {
     public User loginUser(String username, String password) {
         return userRepo.findByUsernameAndPassword(username,password);
     }
-//    @Override
-//    public boolean loginUser(UserDto userDto) {
-//        User user = userRepo.findByUsername(userDto.getUsername());
-//        if (user == null) {
-//            return false; // User not found
-//        }
-//        return user.checkPassword(userDto.getPassword());
-//    }
+
 }

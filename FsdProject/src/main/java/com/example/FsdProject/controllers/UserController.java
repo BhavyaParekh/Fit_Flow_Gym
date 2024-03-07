@@ -19,17 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @PostMapping("/login")
-//    public ResponseEntity<?> loginUser(@RequestBody UserDto userDto) {
-//        boolean loginSuccess = userService.loginUser(userDto);
-//        if (loginSuccess) {
-//            // For simplicity, returning a success message. In a real application, you would return a token or some form of authentication.
-//            return new ResponseEntity<>(Map.of("message", "Login successful"), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(Map.of("message", "Login failed"), HttpStatus.UNAUTHORIZED);
-//        }
-//    }
-    //post - create user
+
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
