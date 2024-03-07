@@ -10,14 +10,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+//    @PostMapping("/login")
+//    public ResponseEntity<?> loginUser(@RequestBody UserDto userDto) {
+//        boolean loginSuccess = userService.loginUser(userDto);
+//        if (loginSuccess) {
+//            // For simplicity, returning a success message. In a real application, you would return a token or some form of authentication.
+//            return new ResponseEntity<>(Map.of("message", "Login successful"), HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(Map.of("message", "Login failed"), HttpStatus.UNAUTHORIZED);
+//        }
+//    }
     //post - create user
-    @PostMapping("/")
+    @PostMapping("/signup")
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
         UserDto createUserDto = this.userService.createUser(userDto);
         return  new ResponseEntity<>(createUserDto, HttpStatus.CREATED);

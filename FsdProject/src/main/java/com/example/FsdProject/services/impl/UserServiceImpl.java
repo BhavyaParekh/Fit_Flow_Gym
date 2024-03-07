@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
     @Override
     public UserDto createUser(UserDto userDto) {
+
+        // Validate that the name field in the UserDto is not null or empty
+        if (userDto.getUsername() == null || userDto.getUsername().isEmpty()) {
+            throw new IllegalArgumentException("User name cannot be null or empty");
+        }
         User user = this.dtoToUser(userDto);
         User savedUser =this.userRepo.save(user);
 
@@ -28,12 +33,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto updateUser(UserDto userDto, Integer userId) {
         User user = this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User","id",userId));
-        user.setName(userDto.getName());
+        user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
-        user.setHeight(userDto.getHeight());
-        user.setWeight(userDto.getWeight());
-        user.setBmi(userDto.getBmi());
+//        user.setConfirmPassword(userDto.getConfirmPassword());
+
         User updatedUser = this.userRepo.save(user);
         UserDto userDto1 = this.userToDto(updatedUser);
 
@@ -64,24 +68,30 @@ public class UserServiceImpl implements UserService {
     private User dtoToUser(UserDto userDto){
         User user = new User();
         user.setId(userDto.getId());
-        user.setName(userDto.getName());
+        user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
-        user.setHeight(userDto.getHeight());
-        user.setWeight(userDto.getWeight());
-        user.setBmi(userDto.getBmi());
+//        user.setConfirmPassword(userDto.getConfirmPassword());
+
         return user;
     }
 
     public UserDto userToDto(User user){
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
-        userDto.setName(user.getName());
+        userDto.setUsername(user.getUsername());
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
-        userDto.setHeight(user.getHeight());
-        userDto.setWeight(user.getWeight());
-        userDto.setBmi(user.getBmi());
+//        userDto.setConfirmPassword(user.getConfirmPassword());
+
         return userDto;
     }
+//    @Override
+//    public boolean loginUser(UserDto userDto) {
+//        User user = userRepo.findByUsername(userDto.getUsername());
+//        if (user == null) {
+//            return false; // User not found
+//        }
+//        return user.checkPassword(userDto.getPassword());
+//    }
 }

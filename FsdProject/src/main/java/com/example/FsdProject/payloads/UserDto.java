@@ -14,11 +14,9 @@ public class UserDto {
     private int id;
 
 
-    private String name;
+    private String username;
     private String email;
     private String password;
-    private float height;
-    private float weight;
-    private float bmi;
+//    private String confirmPassword;
 
 }
