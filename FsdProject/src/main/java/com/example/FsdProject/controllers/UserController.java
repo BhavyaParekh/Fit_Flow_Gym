@@ -58,3 +58,33 @@ public class UserController {
         return ResponseEntity.ok(this.userService.getUserById(userId));
     }
 }
+/*
+package com.example.bmi.controller;
+
+import com.example.bmi.entity.BMI;
+import com.example.bmi.service.BMIService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/bmi")
+public class BMIController {
+    @Autowired
+    private BMIService bmiService;
+
+    @PostMapping("/save")
+    public BMI saveBMI(@RequestBody BMI bmi) {
+        return bmiService.saveBMI(bmi);
+    }
+
+    @GetMapping("/all")
+    public List<BMI> getAllBMIs() {
+        return bmiService.getAllBMIs();
+    }
+
+    // Additional endpoints as needed
+}
+
+ */
