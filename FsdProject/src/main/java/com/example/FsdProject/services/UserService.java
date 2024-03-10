@@ -14,4 +14,6 @@ public interface UserService {
     void deleteUser(Integer userId);
     //public boolean loginUser(UserDto userDto);
     public User loginUser(String username, String password);
+    public UserDto userToDto(User user);
+    public User dtoToUser(UserDto userDto);
 }

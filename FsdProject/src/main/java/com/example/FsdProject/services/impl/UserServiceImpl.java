@@ -64,8 +64,8 @@ public class UserServiceImpl implements UserService {
         this.userRepo.delete(user);
 
     }
-
-    private User dtoToUser(UserDto userDto){
+    @Override
+    public User dtoToUser(UserDto userDto){
         User user = new User();
         user.setId(userDto.getId());
         user.setUsername(userDto.getUsername());
@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
 
         return user;
     }
-
+    @Override
     public UserDto userToDto(User user){
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());

@@ -2,6 +2,7 @@ package com.example.FsdProject.controllers;
 
 import com.example.FsdProject.entities.User;
 import com.example.FsdProject.payloads.UserDto;
+import com.example.FsdProject.services.BMIService;
 import com.example.FsdProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+//    private BMIService bmiService;
 
 
 
@@ -57,34 +60,13 @@ public class UserController {
     public  ResponseEntity<UserDto> getSingleUsers(@PathVariable Integer userId){
         return ResponseEntity.ok(this.userService.getUserById(userId));
     }
+
+
+//    @GetMapping("/{userId}/bmi")
+//    public ResponseEntity<UserBMIInfo> getUserBMIInfo(@PathVariable Long userId) {
+//        User user = userService.findUserById(userId);
+//        BMI bmi = bmiService.findBMIByUserId(userId);
+//        UserBMIInfo userBMIInfo = new UserBMIInfo(user.getName(), bmi.getBMI(), bmi.getHeight(), bmi.getWeight());
+//        return ResponseEntity.ok(userBMIInfo);
+//    }
 }
-/*
-package com.example.bmi.controller;
-
-import com.example.bmi.entity.BMI;
-import com.example.bmi.service.BMIService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
-@RequestMapping("/api/bmi")
-public class BMIController {
-    @Autowired
-    private BMIService bmiService;
-
-    @PostMapping("/save")
-    public BMI saveBMI(@RequestBody BMI bmi) {
-        return bmiService.saveBMI(bmi);
-    }
-
-    @GetMapping("/all")
-    public List<BMI> getAllBMIs() {
-        return bmiService.getAllBMIs();
-    }
-
-    // Additional endpoints as needed
-}
-
- */

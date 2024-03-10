@@ -18,9 +18,10 @@ public class BMIController {
     @Autowired
     private BMIService bmiService;
 
-    @PostMapping("/save")
-    public BMI saveBMI(@RequestBody BMI bmi) {
-        return bmiService.saveBMI(bmi);
+
+    @PostMapping("/save/{userId}")
+    public BMI saveBMI(@RequestBody BMI bmi , @PathVariable Integer userId) {
+        return bmiService.saveBMI(bmi,userId);
     }
 
     @GetMapping("/all")

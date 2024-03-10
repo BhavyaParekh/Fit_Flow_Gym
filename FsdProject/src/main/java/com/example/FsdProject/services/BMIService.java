@@ -9,7 +9,7 @@ import com.example.FsdProject.payloads.UserDto;
 import java.util.List;
 
 public interface BMIService {
-    public BMI saveBMI(BMI bmi);
+    public BMI saveBMI(BMI bmi , int userId);
     public List<BMI> getAllBMIs();
 
     public void deleteBMI(Long bmiId);
