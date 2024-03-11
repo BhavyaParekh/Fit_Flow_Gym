@@ -13,6 +13,8 @@ public interface BMIService {
     public List<BMI> getAllBMIs();
 
     public void deleteBMI(Long bmiId);
+    public List<BMIDto> getBMIsByUserId(Integer userId);
+
 
 
 }

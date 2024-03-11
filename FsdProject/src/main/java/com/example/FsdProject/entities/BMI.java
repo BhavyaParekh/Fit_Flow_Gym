@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name="bmi")
 @Getter@Setter
@@ -16,6 +18,7 @@ public class BMI {
     private double height;
     private double weight;
     private double bmi;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

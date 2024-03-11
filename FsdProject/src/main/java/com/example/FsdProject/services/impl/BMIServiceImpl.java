@@ -10,16 +10,24 @@ import com.example.FsdProject.services.BMIService;
 import com.example.FsdProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
+
 public class BMIServiceImpl implements BMIService {
 
-    @Autowired
     private BMIRepo bmiRepository;
-    @Autowired
+
     private UserServiceImpl userService;
+
+    @Autowired
+    public BMIServiceImpl(BMIRepo bmiRepository, UserServiceImpl userService) {
+        this.bmiRepository = bmiRepository;
+        this.userService = userService;
+    }
 
 
 
@@ -27,18 +35,6 @@ public class BMIServiceImpl implements BMIService {
     public BMI saveBMI(BMI bmi , int userId) {
 
 
-//        User user = bmi.getUser();
-//        User user = bmi.getUser();
-//
-//        // Check if the user is not null
-//        if (user != null) {
-//            // Set the user object in the BMI entity
-//            bmi.setUser(user);
-//        }
-//         Get the user ID from the BMI object
-//        Integer userId = bmi.getUser().getId();
-
-        // Retrieve the user from the database using the user ID
 
         UserDto userDto = userService.getUserById(userId);
         User user = userService.dtoToUser(userDto);
@@ -60,4 +56,25 @@ public class BMIServiceImpl implements BMIService {
             this.bmiRepository.delete(bmi);
 
     }
+
+
+
+@Override
+
+public List<BMIDto> getBMIsByUserId(Integer userId) {
+    List<BMI> bmiList = bmiRepository.findByUserId(userId);
+    return bmiList.stream()
+            .map(this::toBMIDto)
+            .collect(Collectors.toList());
+}
+
+//    private BMIDto toBMIDto(BMI bmi) {
+//        return new BMIDto(bmi.getUser().getUsername(), bmi.getWeight(), bmi.getHeight(), bmi.getBmi());
+//    }
+private BMIDto toBMIDto(BMI bmi) {
+    // Assuming you have a method to get userId by username
+    Integer userId = userService.getUserIdByUsername(bmi.getUser().getUsername());
+    return new BMIDto(userId, bmi.getWeight(), bmi.getHeight(), bmi.getBmi());
+}
+
 }

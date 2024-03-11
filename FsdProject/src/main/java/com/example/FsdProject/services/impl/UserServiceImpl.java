@@ -10,6 +10,7 @@ import org.springframework.boot.context.config.ConfigDataResourceNotFoundExcepti
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -49,6 +50,14 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserById(Integer userId) {
         User user = this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User","id",userId));
         return this.userToDto(user);
+    }
+    public Integer getUserIdByUsername(String username) {
+        Optional<User> userOptional = userRepo.findByUsername(username);
+        if (userOptional.isPresent()) {
+            return userOptional.get().getId();
+        } else {
+            throw new RuntimeException("User not found with username: " + username);
+        }
     }
 
     @Override

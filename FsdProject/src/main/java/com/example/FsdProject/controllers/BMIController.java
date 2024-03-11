@@ -34,4 +34,10 @@ public class BMIController {
         return new ResponseEntity(Map.of("message","BMI deleted Successfully"), HttpStatus.OK);
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<BMIDto>> getBMIsByUserId(@PathVariable Integer userId) {
+        List<BMIDto> bmiDtos = bmiService.getBMIsByUserId(userId);
+        return new ResponseEntity<>(bmiDtos, HttpStatus.OK);
+    }
+
 }
