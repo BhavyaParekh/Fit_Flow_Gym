@@ -5,10 +5,8 @@ Author : Bhavya Parekh
 ## Usage
 
 1. **Login**: Users can log in using their credentials.
-2. 
-3. **BMI Calculation**: After logging in, users can input their height and weight to calculate their BMI.
-4. 
-5. **History**: The application records the user's BMI history, allowing them to view their past metrics.
+2. **BMI Calculation**: After logging in, users can input their height and weight to calculate their BMI.
+3. **History**: The application records the user's BMI history, allowing them to view their past metrics.
 
 ## Technology Used 
 I have used react as frontend and spring boot in backend.
